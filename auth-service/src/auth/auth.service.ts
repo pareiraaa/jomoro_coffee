@@ -87,18 +87,18 @@ export class AuthService {
 
         //cek password
         if(user.password !== password){
-            throw new UnauthorizedException('Incorrect password');
+            throw new UnauthorizedException('Incorrect password')
         }
 
-        //generate token
         const payload = {
             id: user.id,
             role: user.role
         }
-        const token = await this.jwtService.signAsync(payload);
+
+        const token = await this.jwtService.signAsync(payload)
 
         return {
-            message: 'Login successful',
+            message: 'Login successfull',
             token
         }
     }
