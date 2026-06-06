@@ -64,5 +64,11 @@ export class ProductController {
         return await this.productService.deleteProduct(id);
     }
 
+    //internal endpoint
+    @Post('internal/products/:id/reduce')
+    async reduceStockInternal(@Param('id', ParseIntPipe) id: number, @Body() dto: ReduceStockDto) {
+        return this.productService.reduceProductStock(id, dto);
+    }
+
 
 }
